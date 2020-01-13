@@ -1,0 +1,20 @@
+on copie tout le code html du template dans un fichier home.blade.php
+on copie les fichiers js de notre template dans resources/js
+on copie les fichiers css de notre template dans resources/cs
+
+puis on ouvre webpack.mix.js pour compiler les fichiers
+
+mix.js(['resources/js/script1.js','resources/js/script2.js'], 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .styles(['resources/css/fichiers_css1.css','resources/css/fichiers_css2.css'], 'public/css/all.css');
+
+sur home.blade.php on importe les fichiers css en utilisant la fonction asset()
+   <link href="{{asset('css/app.css')}}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{asset('css/all.css')}}" rel="stylesheet" />
+Puis on importe les fichiers js en utilisant la fonction asset()
+
+    <script src="{{asset('js/app.js')}}"></script>
+
+ et enfin on compile tout le fichier webpack avec la commande: npm run dev
